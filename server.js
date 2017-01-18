@@ -1,8 +1,8 @@
 const express = require('express');
-const port = process.env.PORT || 8000;
 const path = require('path');
 
 const app = express();
+const port = process.env.PORT || 8000;
 
 app.use('/dist', express.static('dist'));
 
@@ -11,5 +11,7 @@ app.get('/', (req, res) => {
 });
 
 app.listen(port, () => {
+  /* eslint-disable no-console */
+
   console.log('on some port');
 });

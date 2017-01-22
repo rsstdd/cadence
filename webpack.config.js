@@ -1,18 +1,27 @@
 const path = require('path');
-const APP_DIR = path.resolve(__dirname, 'app');
-const BUILD_DIR = path.resolve(__dirname, 'dist');
+const webpack = require('webpack');
+const APP_DIR = path.resolve(__dirname, 'src');
+const BUILD_DIR = path.resolve(__dirname, 'build');
 
 module.exports = {
-  entry: APP_DIR + '/index.jsx',
+  devtool: 'cheap-module-eval-source-map',
+  entry: [
+    'webpack-hot-middleware/client',
+    APP_DIR + '/index.jsx',
+  ],
   output: {
     filename: 'bundle.js',
     path: BUILD_DIR,
+    publicPath: '/build/',
   },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ],
   module: {
     loaders: [{
       test: /\.jsx?$/,
-      exclude: /node_modules/,
-      loaders: ['babel-loader'],
+      loaders: ['react-hot-loader', 'babel-loader'],
+      include: path.join(__dirname, 'src'),
     }],
   },
   resolve: {

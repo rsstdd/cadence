@@ -18,13 +18,14 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin()
   ],
   module: {
-    loaders: [{
+    rules: [{
       test: /\.jsx?$/,
-      loaders: ['react-hot-loader', 'babel-loader'],
+      exclude: /node_modules/,
+      use: ['react-hot-loader', 'babel-loader'],
       include: path.join(__dirname, 'src'),
     }],
   },
   resolve: {
-    extensions: ['', '.jsx', '.js']
+    extensions: ['.jsx', '.js']
   },
 }

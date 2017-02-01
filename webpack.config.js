@@ -20,9 +20,14 @@ module.exports = {
   module: {
     rules: [{
       test: /\.jsx?$/,
-      exclude: /node_modules/,
       use: ['react-hot-loader', 'babel-loader'],
       include: path.join(__dirname, 'src'),
+      exclude: /node_modules/,
+    }, {
+      test: /\.scss$/,
+      use: ['style-loader', 'css-loader', 'sass-loader'],
+      include: path.join(__dirname, 'src'),
+      exclude: /node_modules/,
     }],
   },
   resolve: {

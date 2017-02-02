@@ -1,5 +1,5 @@
-import Card from './Card';
-import CarouselDots from './CarouselDots';
+// import Card from './Card';
+// import CarouselDots from './CarouselDots';
 import React from 'react';
 
 export default class Carousel extends React.Component {
@@ -8,11 +8,11 @@ export default class Carousel extends React.Component {
       <div className="carousel">
         <div className="row">
           <div className="one columns">◀︎</div>
-          <Card />
+          {/* <Card /> */}
           <div className="one columns">▶︎</div>
         </div>
         <div className="row carousel-dots">
-          <CarouselDots />
+          {/* <CarouselDots /> */}
         </div>
       </div>
     );

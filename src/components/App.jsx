@@ -4,7 +4,7 @@ import Carousel from './Carousel';
 class App extends React.Component {
   render() {
     return (
-      <div>
+      <div id="content">
         <h1>Bob there</h1>
           <Carousel />
       </div>

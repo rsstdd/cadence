@@ -1,4 +1,4 @@
-// import Button from './Button';
+import Button from './Button';
 import React from 'react';
 
 export default class Card extends React.Component {
@@ -9,8 +9,8 @@ export default class Card extends React.Component {
           <div className="card-flip"> Flip </div>
         </div>
         <div className="card-question">Questions about stuff</div>
-        {/* <Button />
-        <Button /> */}
+        <Button />
+        <Button />
       </div>
     );
   }

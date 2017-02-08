@@ -22,14 +22,14 @@ html {
 }
 
 /* Application Styling */
-.card {
-  border: 1px solid black;
-}
+// .card {
+//   border: 1px solid black;
+// }
 
-.card-flip {
-  float: right;
-  padding: 4px;
-}
+// .card-flip {
+//   float: right;
+//   padding: 4px;
+// }
 
 .card-header {
   display: inline-block;
@@ -53,4 +53,169 @@ html {
 
 .dots {
   margin: 0 auto;
+}
+
+/* FlipCard */
+
+.flipCard {
+    margin: 25px;
+    text-align: center;
+  }
+
+  .flipCard,
+  .flipCard__Front,
+  .flipCard__Back {
+    box-sizing: border-box;
+    width: 250px;
+    height: 150px;
+  }
+  .flipCard__Front,
+  .flipCard__Back {
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 25px;
+  }
+  .flipCard__Front {
+    background-color: #eee;
+  }
+  .flipCard__Back {
+    background-color: #cef;
+  }
+
+.flipCard {
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -ms-perspective: 1000;
+  perspective: 1000;
+
+  -ms-transform: perspective(1000px);
+  -moz-transform: perspective(1000px);
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+
+  border: 1px solid black;
+  display: inline-block;
+}
+
+/* START: Accommodating for IE */
+.flipCard:hover .flipCard,
+.flipCard--flipped .flipCard {
+  -webkit-transform: rotateY(0deg);
+  -moz-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  -o-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+}
+
+.flipCard--enabled.flipCard:hover .flipCard__Front,
+.flipCard--flipped .flipCard__Front {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+/* END: Accommodating for IE */
+
+.flipCard__Flipper {
+  -webkit-transition: 0.6s;
+  -webkit-transform-style: preserve-3d;
+  -ms-transition: 0.6s;
+
+  -moz-transition: 0.6s;
+  -moz-transform: perspective(1000px);
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+
+  transition: 0.6s;
+  transform-style: preserve-3d;
+
+  position: relative;
+}
+
+.flipCard__Front, .flipCard__Back {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+
+  -webkit-transition: 0.6s;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transform: rotateY(0deg);
+
+  -moz-transition: 0.6s;
+  -moz-transform-style: preserve-3d;
+  -moz-transform: rotateY(0deg);
+
+  -o-transition: 0.6s;
+  -o-transform-style: preserve-3d;
+  -o-transform: rotateY(0deg);
+
+  -ms-transition: 0.6s;
+  -ms-transform-style: preserve-3d;
+  -ms-transform: rotateY(0deg);
+
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  transform: rotateY(0deg);
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.flipCard__Front {
+  -webkit-transform: rotateY(0deg);
+  -moz-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  -o-transform: rotateY(0deg);
+  z-index: 2;
+}
+
+.flipCard__Back {
+  -webkit-transform: rotateY(-180deg);
+  -moz-transform: rotateY(-180deg);
+  -ms-transform: rotateY(-180deg);
+  -o-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+}
+
+/* vertical */
+.flipCard--vertical {
+  position: relative;
+}
+
+.flipCard--vertical .flipCard__Back {
+  -webkit-transform: rotateX(180deg);
+  -moz-transform: rotateX(180deg);
+  -ms-transform: rotateX(180deg);
+  -o-transform: rotateX(180deg);
+  transform: rotateX(180deg);
+}
+
+.flipCard--vertical .flipCard__Flipper {
+  -webkit-transform-origin: 100% 150px;
+  -moz-transform-origin: 100% 150px;
+  -ms-transform-origin: 100% 150px;
+  -o-transform-origin: 100% 150px;
+  transform-origin: 100% 150px;
+}
+
+/* START: Accommodating for IE */
+.flipCard--enabled.flipCard--vertical:hover .flipCard__Back,
+.flipCard--vertical.flipCard--flipped .flipCard__Back {
+  -webkit-transform: rotateX(0deg);
+  -moz-transform: rotateX(0deg);
+  -ms-transform: rotateX(0deg);
+  -o-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+}
+
+.flipCard--enabled.flipCard--vertical:hover .flipCard__Front,
+.flipCard--vertical.flipCard--flipped .flipCard__Front {
+  -webkit-transform: rotateX(180deg);
+  -moz-transform: rotateX(180deg);
+  -ms-transform: rotateX(180deg);
+  -o-transform: rotateX(180deg);
+  transform: rotateX(180deg);
 }

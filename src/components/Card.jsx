@@ -4,7 +4,7 @@ import React from 'react';
 export default class Card extends React.Component {
   render() {
     return (
-      <div className="card ten columns">
+      <div className="flipCard ten columns">
         <div className="card-header">
           <div className="card-flip"> Flip </div>
         </div>
